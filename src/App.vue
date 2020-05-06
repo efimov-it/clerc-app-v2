@@ -5,56 +5,33 @@
         <router-link to="/">Clerc</router-link>
       </h1>
 
-      <nav class="header_nav">
-        <button class="header_nav-button icon_user"
-                type="button"></button>
-        <button class="header_nav-button icon_logOut"
-                type="button"></button>
+      <nav class="header_nav"
+           v-if="$store.getters.isUserLogined">
+        <button class="header_nav-button icon icon_users"
+                type="button"
+                title="Пользователи"></button>
+        <button class="header_nav-button icon icon_logout"
+                type="button"
+                title="Выйти"></button>
       </nav>
     </header>
 
-    <main>
-      <login />
+    <main class="app-container">
+      <login v-if="!$store.getters.isUserLogined" />
     </main>
+
+    <modal />
     
   </div>
 </template>
 
 <script>
-import login from './views/login'
+import login from './views/login';
+import modal from './components/modal';
 export default {
   components: {
-    login
+    login,
+    modal
   }
 }
 </script>
-
-<style lang="scss">
-
-  @font-face {
-    font-family: "Roboto";
-    src: url(./assets/fonts/Roboto-Regular.ttf)
-  }
-  @font-face {
-    font-family: "RobotoLight";
-    src: url(./assets/fonts/Roboto-Light.ttf)
-  }
-  @font-face {
-    font-family: "RobotoBold";
-    src: url(./assets/fonts/Roboto-Bold.ttf)
-  }
-
-  *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    color: #2e2e2e;
-    font-family: Roboto;
-    outline: none;
-  }
-
-  body {
-    background-color: #f6f7fb;
-  }
-
-</style>

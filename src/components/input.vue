@@ -30,9 +30,13 @@ export default {
         width: 100%;
         border: none;
         border-bottom: 1px solid #dcdce8;
-        background-color: #00000000;
+        background-color: #ffffff;
         font-size: 10px;
         padding: 7px 0px;
+
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+        }
 
         &::placeholder {
             color: #dcdce8;

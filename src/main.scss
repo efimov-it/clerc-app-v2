@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(./assets/fonts/Roboto-Regular.ttf)
+}
+@font-face {
+    font-family: "RobotoLight";
+    src: url(./assets/fonts/Roboto-Light.ttf)
+}
+@font-face {
+    font-family: "RobotoBold";
+    src: url(./assets/fonts/Roboto-Bold.ttf)
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: #2e2e2e;
+    font-family: Roboto;
+    outline: none;
+}
+
+body {
+    background-color: #f6f7fb;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #ffffff;
+    display: flex;
+    border-bottom: 1px solid #dcdce8;
+    padding: 5px calc(50vw - 502px);
+
+    &_title {
+        padding: 0px 40px;
+        display: flex;
+
+        a {
+            font-size: 26px;
+            color: #5361ff;
+            font-family: RobotoBold;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    &_nav {
+        margin-left: auto;
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+
+        &>*:not(:last-child) {
+            margin-right: 25px;
+        }
+
+        &>*:not(:last-child)::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: 1px;
+            height: 10px;
+            margin: -5px 0px 0px 18px;
+            background-color: #dcdcdc;
+        }
+
+        &-button {
+            cursor: pointer;
+            width: 12px;
+            height: 12px;
+        }
+    }
+}
+
+.app-container {
+    flex-basis: 100%;
+}
+
+.icon {
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &_users {
+        background-image: url(./assets/ui-img/users-button.svg);
+    }
+
+    &_logout {
+        background-image: url(./assets/ui-img/logout-button.svg);
+    }
+}
+
+.button {
+    cursor: pointer;
+    background-color: #5361ff;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.m {
+    &b {
+        &-15 {
+            margin-bottom: 15px;
+        }
+        &-30 {
+            margin-bottom: 30px;
+        }
+    }
+
+    &h {
+        &-40 {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        &-60 {
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+    }
+}
