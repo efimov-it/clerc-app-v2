@@ -4,8 +4,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-
 Vue.config.productionTip = false
+
+import request from './network';
+global.request = request;
 
 new Vue({
   router,

@@ -12,12 +12,14 @@
                 title="Пользователи"></button>
         <button class="header_nav-button icon icon_logout"
                 type="button"
-                title="Выйти"></button>
+                title="Выйти"
+                @click="$store.commit('logout')"></button>
       </nav>
     </header>
 
     <main class="app-container">
       <login v-if="!$store.getters.isUserLogined" />
+      <router-view v-else />
     </main>
 
     <modal />
@@ -32,6 +34,11 @@ export default {
   components: {
     login,
     modal
+  },
+  created () {
+    if ( this.$store.getters.isUserLogined ) {
+      this.$store.dispatch('loadUserData');
+    }
   }
 }
 </script>

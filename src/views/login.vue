@@ -36,7 +36,18 @@ export default {
     },
     methods: {
         login () {
-            alert(this.mail + ' ' + this.password)
+            if (this.mail == '' || this.password == ''){
+                this.$store.commit('showModal', {
+                    header: 'Авторизация',
+                    content: 'Вы не указали Ваш E-mail или пароль. Пожалуйста, убедитесь в том, что поля E-mail и пароль заполнены и повторите попытку.'
+                });
+            }
+            else {
+                this.$store.dispatch('login', {
+                    mail: this.mail,
+                    password: this.password
+                });
+            }
         }
     }
 }

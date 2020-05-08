@@ -39,6 +39,7 @@ body {
     &_title {
         padding: 0px 40px;
         display: flex;
+        user-select: none;
 
         a {
             font-size: 26px;
@@ -78,6 +79,10 @@ body {
 }
 
 .app-container {
+    width: 100vw;
+    max-width: 1024px;
+    padding: 0px 40px;
+    margin: 0px auto;
     flex-basis: 100%;
 }
 
@@ -86,6 +91,10 @@ body {
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
+
+    &_close {
+        background-image: url(./assets/ui-img/remove.svg);
+    }
 
     &_users {
         background-image: url(./assets/ui-img/users-button.svg);
@@ -97,6 +106,7 @@ body {
 }
 
 .button {
+    user-select: none;
     cursor: pointer;
     background-color: #5361ff;
     color: #ffffff;
@@ -126,5 +136,13 @@ body {
             margin-left: 60px;
             margin-right: 60px;
         }
+    }
+}
+
+.fade {
+    transition: opacity .3s;
+
+    &_out {
+        opacity: 0;
     }
 }

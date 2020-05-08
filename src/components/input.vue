@@ -23,6 +23,7 @@ export default {
     &_label {
         font-size: 12px;
         font-family: RobotoBold;
+        user-select: none;
     }
 
     &_value {
