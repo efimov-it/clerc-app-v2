@@ -81,7 +81,7 @@ body {
 .app-container {
     width: 100vw;
     max-width: 1024px;
-    padding: 0px 40px;
+    padding: 15px 40px;
     margin: 0px auto;
     flex-basis: 100%;
 }
@@ -102,6 +102,10 @@ body {
 
     &_logout {
         background-image: url(./assets/ui-img/logout-button.svg);
+    }
+
+    &_back {
+        background-image: url(./assets/ui-img/back-arrow.svg);
     }
 }
 

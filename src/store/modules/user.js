@@ -51,7 +51,11 @@ export default {
                 url: '/api/profile',
                 headers: {Authorization: state.authStr},
                 resolve (resp) {
-                    commit('setUserRole', resp.role)
+                    commit('addPath', {
+                        path: '/',
+                        title: resp.role == 1 ? 'Контракты' : 'Объекты'
+                    });
+                    commit('setUserRole', resp.role);
                 },
                 reject (err) {
                     console.warn(err.error);

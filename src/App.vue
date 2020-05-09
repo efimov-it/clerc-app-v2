@@ -13,13 +13,16 @@
         <button class="header_nav-button icon icon_logout"
                 type="button"
                 title="Выйти"
-                @click="$store.commit('logout')"></button>
+                @click="$store.commit('logout');$store.commit('clearBreadcrumbs');"></button>
       </nav>
     </header>
 
     <main class="app-container">
       <login v-if="!$store.getters.isUserLogined" />
-      <router-view v-else />
+      <div v-else>
+        <breadcrumbs />
+        <router-view />
+      </div>
     </main>
 
     <modal />
@@ -30,10 +33,12 @@
 <script>
 import login from './views/login';
 import modal from './components/modal';
+import breadcrumbs from './components/breadcrumbs';
 export default {
   components: {
     login,
-    modal
+    modal,
+    breadcrumbs
   },
   created () {
     if ( this.$store.getters.isUserLogined ) {
