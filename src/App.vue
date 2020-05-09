@@ -19,10 +19,8 @@
 
     <main class="app-container">
       <login v-if="!$store.getters.isUserLogined" />
-      <div v-else>
-        <breadcrumbs />
-        <router-view />
-      </div>
+      <breadcrumbs v-if="$store.getters.isUserLogined" />
+      <router-view v-if="$store.getters.isUserLogined" />
     </main>
 
     <modal />

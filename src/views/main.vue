@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <adminDashboard v-if="$store.getters.getUserRole == 1" />
         <watcherDashboard v-if="$store.getters.getUserRole == 0" />
     </div>

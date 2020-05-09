@@ -81,9 +81,20 @@ body {
 .app-container {
     width: 100vw;
     max-width: 1024px;
-    padding: 15px 40px;
+    padding: 15px 40px 30px 40px;
     margin: 0px auto;
     flex-basis: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 4px;
+    flex: 1;
+    overflow: auto;
 }
 
 .icon {
