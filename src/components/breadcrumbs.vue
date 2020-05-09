@@ -1,7 +1,7 @@
 <template>
     <div class="breadcrumbs">
         <div class="breadcrumbs_toMainPage"
-             v-if="$store.getters.getPathsCount > 1"
+             v-if="$route.path != '/'"
              @click="$store.commit('goPath', 0)">
             <router-link to="/"><i class="icon icon_back" />На главную</router-link>
         </div>

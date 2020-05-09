@@ -6,8 +6,14 @@
         </tr>
         <tr v-for="(row, index) in this.data"
             :key="index">
-            <td v-for="(cell, index) in Object.keys(row)"
-                :key="index">{{row[cell]}}</td>
+                <td v-for="(cell, index) in Object.keys(row)"
+                    :key="index">
+                    <router-link :to="link+row['id']"
+                                 v-if="link">
+                        {{row[cell]}}
+                    </router-link>
+                    <span v-else>{{row[cell]}}</span>
+                </td>
         </tr>
     </table>
     <div v-else>Таблица пуста</div>
@@ -15,7 +21,7 @@
 
 <script>
 export default {
-    props: ['data']
+    props: ['data', 'link']
 }
 </script>
 
@@ -23,6 +29,10 @@ export default {
 table {
     border-collapse: collapse;
     font-size: 12px;
+
+    a {
+        text-decoration: none;
+    }
 
     th {
         padding: 20px 20px;
@@ -42,6 +52,7 @@ table {
 
     tr:not(:first-child) {
         cursor: pointer;
+        vertical-align: top;
 
         &:hover {
             box-shadow: 0px 3px 5px #0000001a;
