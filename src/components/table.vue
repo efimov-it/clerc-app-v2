@@ -1,5 +1,5 @@
 <template>
-    <table v-if="this.data.length > 0">
+    <table v-if="this.data && this.data.length > 0">
         <tr>
             <th v-for="header in Object.keys(this.data[0])"
                 :key="header">{{header}}</th>

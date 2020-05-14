@@ -4,6 +4,8 @@ Vue.use(VueRouter)
 
 import mainPage from '../views/main';
 import dealView from '../views/dealView';
+import objectView from '../views/objectView';
+import usersList from '../views/usersList';
 
   const routes = [
     {
@@ -15,6 +17,16 @@ import dealView from '../views/dealView';
       path: '/deal/:id',
       name: 'dealView',
       component: dealView
+    },
+    {
+      path: '/objects/:id',
+      name: 'objectView',
+      component: objectView
+    },
+    {
+      path: '/users/',
+      name: 'usersList',
+      component: usersList
     }
 ]
 

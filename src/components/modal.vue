@@ -8,9 +8,7 @@
                 <button class="modal_close icon icon_close"
                         @click="closeModal" />
                 </header>
-                <div class="modal_content mb-15">
-                    {{$store.getters.getModalContent}}
-                </div>
+                <div class="modal_content mb-15" v-html="$store.getters.getModalContent" />
                 <footer class="modal_footer">
                     <button class="button modal_submit"
                             @click="submitModal">Хорошо</button>
@@ -82,18 +80,6 @@ export default {
     &_submit {
         padding-left: 40px;
         padding-right: 40px;
-    }
-
-    &_wrapper, &_background {
-        animation: fadeIn .3s 1;
-    }
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
     }
 
     &_background {

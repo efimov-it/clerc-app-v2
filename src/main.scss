@@ -66,7 +66,7 @@ body {
             position: absolute;
             width: 1px;
             height: 10px;
-            margin: -5px 0px 0px 18px;
+            margin: 0.5px 0px 0px 23px;
             background-color: #dcdcdc;
         }
 
@@ -118,6 +118,10 @@ body {
     &_back {
         background-image: url(./assets/ui-img/back-arrow.svg);
     }
+
+    &_preloader {
+        background-image: url(./assets/ui-img/preloader.svg);
+    }
 }
 
 .button {
@@ -155,9 +159,18 @@ body {
 }
 
 .fade {
+    animation: fadeIn .3s 1;
     transition: opacity .3s;
 
     &_out {
         opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

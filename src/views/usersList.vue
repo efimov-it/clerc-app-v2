@@ -1,5 +1,6 @@
 <template>
-    <vueTable :data="$store.getters.getObjects" link="/objects/" />
+    <vueTable class="container"
+              :data="$store.getters.getUsers" />
 </template>
 
 <script>
@@ -9,7 +10,7 @@ export default {
         vueTable
     },
     created () {
-        this.$store.dispatch('loadObjects');
+        this.$store.dispatch('loadUsers');
     }
 }
 </script>

@@ -1,5 +1,6 @@
 export default {
     state: {
+        usersList: null,
         authStr: localStorage.getItem('access_token') && localStorage.getItem('token_type') ? localStorage.getItem('token_type')+' '+localStorage.getItem('access_token') : null,
         role: null
     },
@@ -52,8 +53,11 @@ export default {
                 headers: {Authorization: state.authStr},
                 resolve (resp) {
                     commit('addPath', {
-                        path: '/',
-                        title: resp.role == 1 ? 'Контракты' : 'Объекты'
+                            newPath: {
+                            path: '/',
+                            title: resp.role == 1 ? 'Контракты' : 'Объекты'
+                        },
+                        position: 0
                     });
                     commit('setUserRole', resp.role);
                 },
@@ -66,6 +70,28 @@ export default {
                     });
                 }
             });
+        },
+        loadUsers ({commit, state}) {
+            commit('showPreloader');
+            commit('goPath', -1);
+            commit('addPath', {
+                newPath: {
+                    path: '/users/',
+                    title: 'Пользователи'
+                }
+            });
+            global.request({
+                url: '/api/users/',
+                headers: { Authorization : state.authStr },
+                resolve (resp) {
+                    commit('saveUsers', resp);
+                    commit('hidePreloader');
+                },
+                reject (err) {
+                    commit('hidePreloader');
+                    console.error(err);
+                }
+            })
         }
     },
     mutations: {
@@ -83,6 +109,9 @@ export default {
 
             state.authStr = null;
             state.role = null;
+        },
+        saveUsers ( state, data ) {
+            state.usersList = data;
         }
     },
     getters: {
@@ -94,6 +123,9 @@ export default {
         },
         getUserRole (state) {
             return state.role;
+        },
+        getUsers (state) {
+            return state.usersList;
         }
     }
 }

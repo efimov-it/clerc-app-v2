@@ -4,9 +4,14 @@ export default {
     },
     mutations: {
         addPath (state, data) {
-            state.urls.push({
-                ...data
-            });
+            if (data.position != undefined) {
+                state.urls.splice(data.position, 0, data.newPath);
+            }
+            else {
+                state.urls.push({
+                    ...data.newPath
+                });
+            }
         },
         goPath (state, index) {
             state.urls.splice(index + 1)

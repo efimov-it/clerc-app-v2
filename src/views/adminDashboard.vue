@@ -1,5 +1,6 @@
 <template>
-    <vueTable :data="$store.getters.getDeals" link="/deal/" />
+    <vueTable :data="$store.getters.getDeals"
+              link="/deal/" />
 </template>
 
 <script>
@@ -9,7 +10,7 @@ export default {
         vueTable
     },
     created () {
-        this.$store.dispatch('loadDeal');
+        this.$store.dispatch('loadDeals');
     }
 }
 </script>
